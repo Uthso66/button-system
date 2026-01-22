@@ -9,32 +9,59 @@ export default function Home() {
       <p className="text-gray-600 mb-12">
         Building a reusable button library with 8 variants
       </p>
-      <h2 className="text-2xl font-semibold text-gray-800 mt-8 mb-4">
-        🔘 Button Variants
+      <h2 className="text-2xl font-semibold text-gray-800 mt-12 mb-4">
+        🔥 All 8 Variants
       </h2>
-      <div className="space-y-6">
-        <div className="grid grid-cols-2 gap-4 max-w-2xl">
-          <Button variant="primary">Primary Button</Button>
-          <Button variant="secondary">Secondary Button</Button>
-          <Button variant="destructive">Destructive Button</Button>
-          <Button variant="ghost">Ghost Button</Button>
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mb-8">
+        <Button variant="outline">Outline</Button>
+        <Button variant="success">Success</Button>
+        <Button variant="warning">Warning</Button>
+        <Button variant="link">Link Style</Button>
+      </div>
 
-          <Button variant="primary" disabled>
-            Disabled Primary
-          </Button>
+      {/* Icons & Loading Section */}
+      <h2 className="text-2xl font-semibold text-gray-800 mt-8 mb-4">
+        ✨ Icons & Loading States
+      </h2>
+      <div className="grid grid-cols-2 md:grid-cols-3 gap-4 max-w-4xl">
+        <Button variant="primary" icon="📧">
+          With Icon
+        </Button>
 
-          <Button variant="primary" fullWidth>
-            Full Width Button
+        <Button variant="success" icon="✅">
+          Success Task
+        </Button>
+
+        <div className="mt-6">
+          <Button variant="primary" loading={true} fullWidth>
+            Processing Payment...
           </Button>
         </div>
+      </div>
 
-        {/* Test interaction */}
-        <div className="mt-8">
+      <div className="mt-12 p-6 bg-blue-50 rounded-xl max-w-2xl">
+        <h3 className="text-xl font-semibold text-blue-900 mb-4">
+          🎮 Interactive Demo
+        </h3>
+        <div className="space-y-4">
           <Button
-            variant="primary"
-            onClick={() => alert("🎉 Variants working!")}
+            variant="success"
+            icon="🎉"
+            onClick={() => alert("You clicked the success button!")}
           >
-            ⚡ Test Click
+            Click for Success
+          </Button>
+
+          <Button
+            variant="destructive"
+            icon="🗑️"
+            onClick={() => {
+              if (confirm("Are you sure?")) {
+                alert("Item deleted!");
+              }
+            }}
+          >
+            Delete Item
           </Button>
         </div>
       </div>
