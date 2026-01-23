@@ -13,19 +13,7 @@ const config = {
   // Add more setup options before each test is run
   setupFilesAfterEnv: ["<rootDir>/jest.setup.js"],
   testEnvironment: "jest-environment-jsdom",
-  // Transform .js, .jsx, .ts and .tsx files with ts-jest
-  transform: {
-    "^.+\\.(ts|tsx)$": [
-      "ts-jest",
-      {
-        tsconfig: "<rootDir>/tsconfig.json",
-        // Use react-compiler babel plugin
-        babelConfig: {
-          plugins: [["babel-plugin-react-compiler"]],
-        },
-      },
-    ],
-  },
+
   // Handle module aliases (if you use them)
   moduleNameMapper: {
     "^@/(.*)$": "<rootDir>/src/$1",
