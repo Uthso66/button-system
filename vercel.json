@@ -1,0 +1,13 @@
+{
+  "buildCommand": "npm run build:vercel",
+  "devCommand": "npm run dev",
+  "installCommand": "npm install",
+  "framework": "nextjs",
+  "outputDirectory": ".next",
+  "functions": {
+    "pages/**/*.js": {
+      "maxDuration": 30
+    }
+  },
+  "regions": ["iad1"]
+}
