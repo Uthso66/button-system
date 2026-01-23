@@ -102,7 +102,12 @@ export default function Button({
     >
       {/* Loading spinner */}
       {loading && (
-        <svg className="animate-spin h-5 w-5" fill="none" viewBox="0 0 24 24">
+        <svg
+          className="animate-spin h-5 w-5"
+          fill="none"
+          viewBox="0 0 24 24"
+          role="status"
+        >
           <circle
             className="opacity-25"
             cx="12"
