@@ -1,5 +1,5 @@
 "use client";
-import Button from "./components/Button";
+import { Button } from './components'; 
 export default function Home() {
   return (
     <main className="min-h-screen p-8 bg-linear-to-br from-gray-50 to-gray-100">
@@ -38,7 +38,36 @@ export default function Home() {
           </Button>
         </div>
       </div>
+      {/* Interactive Demo Section */}
+      {/* Size Variants Section */}
+      <h2 className="text-2xl font-semibold text-gray-800 mt-12 mb-4">
+        📏 Size Variants
+      </h2>
+      <div className="space-y-4 max-w-2xl">
+        <div className="flex items-center gap-4">
+          <Button variant="primary" size="sm">
+            Small Button
+          </Button>
+          <Button variant="primary" size="md">
+            Medium Button
+          </Button>
+          <Button variant="primary" size="lg">
+            Large Button
+          </Button>
+        </div>
 
+        <div className="flex items-center gap-4">
+          <Button variant="outline" size="sm" icon="⭐">
+            Small
+          </Button>
+          <Button variant="outline" size="md" icon="⭐">
+            Medium
+          </Button>
+          <Button variant="outline" size="lg" icon="⭐">
+            Large
+          </Button>
+        </div>
+      </div>
       <div className="mt-12 p-6 bg-blue-50 rounded-xl max-w-2xl">
         <h3 className="text-xl font-semibold text-blue-900 mb-4">
           🎮 Interactive Demo

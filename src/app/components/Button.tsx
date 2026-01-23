@@ -9,10 +9,14 @@ type ButtonVariant =
   | "success"
   | "warning"
   | "link";
+
+type ButtonSize = "sm" | "md" | "lg";
+
 interface ButtonProps {
   children: React.ReactNode;
   onClick?: () => void;
   variant?: ButtonVariant;
+  size?: ButtonSize;
   disabled?: boolean;
   fullWidth?: boolean;
   icon?: React.ReactNode;
@@ -59,11 +63,23 @@ const getVariantClasses = (variant: ButtonVariant = "primary") => {
       return baseClasses + "bg-blue-600 text-white";
   }
 };
-
+const getSizeClasses = (size: ButtonSize = "md") => {
+  switch (size) {
+    case "sm":
+      return "px-4 py-2 text-sm";
+    case "md":
+      return "px-6 py-3 text-base";
+    case "lg":
+      return "px-8 py-4 text-lg";
+    default:
+      return "px-6 py-3";
+  }
+};
 export default function Button({
   children,
   onClick,
   variant = "primary",
+  size = "md",
   disabled = false,
   fullWidth = false,
   icon,
@@ -77,10 +93,11 @@ export default function Button({
       disabled={isDisabled}
       className={`
         ${getVariantClasses(variant)}
+        ${getSizeClasses(size)}
         ${fullWidth ? "w-full" : ""}
         ${isDisabled ? "opacity-50 cursor-not-allowed" : "cursor-pointer"}
         ${variant === "link" ? "" : "focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"}
-        flex items-center justify-center gap-2
+        flex items-center justify-center gap-2 rounded-lg font-medium transition-all duration-200
       `}
     >
       {/* Loading spinner */}
@@ -102,8 +119,10 @@ export default function Button({
         </svg>
       )}
 
+      {/* Icon (if not loading) */}
       {!loading && icon && <span>{icon}</span>}
 
+      {/* Button text */}
       {children}
     </button>
   );
